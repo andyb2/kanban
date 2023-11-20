@@ -1,0 +1,15 @@
+.container {
+  height: 100%;
+}
+
+.header {
+  position: absolute;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  height: 100%;
+  width: 100%;
+}
