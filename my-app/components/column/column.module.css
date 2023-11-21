@@ -1,9 +1,11 @@
-.container {
+.container, .spacer, .card {
     display: flex;
     flex-direction: column;
+}
+
+.container {
     border: 1px solid black;
     border-radius: 10px;
-    
 }
 
 .header {
@@ -18,15 +20,11 @@
 }
 
 .spacer {
-    display: flex;
-    flex-direction: column;
     gap: 1rem;
     padding: 2rem;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
     border: 1px solid black;
     padding: 1rem;
     border-radius: 10px;
