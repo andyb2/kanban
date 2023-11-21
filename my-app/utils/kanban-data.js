@@ -1,4 +1,4 @@
-export const board = [{ title: 'Backlog', color: 'rgba(247, 0, 0, 0.548)' }, { title: 'Doing', color: 'rgba(247, 243, 0, 0.548)' }, { title: 'Review' }, { title: 'Done' }];
+export const board = [{ title: 'Backlog', color: 'rgba(247, 0, 0, 0.548)' }, { title: 'Doing', color: 'rgba(247, 243, 0, 0.548)' }, { title: 'Review', color: 'rgba(58, 247, 0, 0.548)' }, { title: 'Done' }];
 
 export const list = {
     'Backlog': [
