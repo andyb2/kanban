@@ -44,17 +44,6 @@ export const list = {
         }
     ],
     'Done': [
-        {
-            title: 'test1',
-            description: 'some random task to do'
-        },
-        {
-            title: 'test2',
-            description: 'some random task to do'
-        },
-        {
-            title: 'test3',
-            description: 'some random task to do'
-        }
+
     ]
 }
