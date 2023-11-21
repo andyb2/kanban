@@ -1,10 +1,10 @@
 import styles from './column.module.css';
 
 export default function Column({ board, list }) {
-
+console.log(board)
     return (
         <div className={styles.container}>
-            <h5 className={styles.header}>{board}</h5>
+            <h5 className={styles.header} style={{background: board.color}}>{board.title}</h5>
             <div className={styles.spacer}>
             {
                 list.map(task => {

@@ -11,7 +11,7 @@ export default function Home() {
         {
           board.map((item) => {
             return (
-              <Column board={item.title} list={list[item.title]} />
+              <Column board={item} list={list[item.title]} />
             )
           })
         }
