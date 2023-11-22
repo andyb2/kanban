@@ -15,7 +15,7 @@ export default function Home() {
         {
           board.map((item) => {
             return (
-              <Column board={item} list={list[item.title]} setListData={setListData} setDraggedCard={setDraggedCard} />
+              <Column board={item} list={list[item.title]} setListData={setListData} listData={listData} setDraggedCard={setDraggedCard} draggedCard={draggedCard} />
             )
           })
         }
