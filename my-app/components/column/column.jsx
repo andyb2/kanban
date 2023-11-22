@@ -2,7 +2,7 @@
 import styles from './column.module.css';
 import { useState, useRef } from 'react';
 
-export default function Column({ board, list, setListData }) {
+export default function Column({ board, list, setListData, setDraggedCard }) {
     const cardRef = useRef(null);
     const columnRef = useRef(null)
     let dragged = false;
