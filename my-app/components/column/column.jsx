@@ -9,11 +9,14 @@ export default function Column({ board, list, setListData, setDraggedCard }) {
 
     const handleOnDrag = (event, card, idx, title) => {
         const { target } = event;
+        
         // Waits when the dragging of a card has started then triggers the display none
         // so it still shows the dragging effect
         setTimeout(() => {
             target.style.display = "none";
-        }, 0)    
+        }, 0) 
+        
+        setDraggedCard(card);
     }
 
     const handleDragOver = (e) => {
@@ -22,7 +25,6 @@ export default function Column({ board, list, setListData, setDraggedCard }) {
 
     const handleOnDrop = (e) => {
         e.preventDefault();
-        console.log(draggedCard)
     }
 
     return (
