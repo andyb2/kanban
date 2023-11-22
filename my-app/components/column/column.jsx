@@ -24,10 +24,12 @@ export default function Column({ board, list, setListData, listData, setDraggedC
     }
 
     const handleOnDrop = (e, boardTitle) => {
+        console.log(boardTitle, draggedCard)
         e.preventDefault();
         const list = { ...listData };
         list[draggedCard.title] = list[draggedCard.title].filter((task) => task.id !== draggedCard.card.id);
         list[boardTitle].push(draggedCard.card);
+        
         setListData(list);
     }
     
