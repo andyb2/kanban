@@ -5,7 +5,7 @@ import { board, list } from '@/utils/kanban-data';
 import { useState } from 'react';
 
 export default function Home() {
-  const [listData, setListData] = useState({ list, draggedCard: {} });
+  const [listData, setListData] = useState(list);
   const [draggedCard, setDraggedCard] = useState(null);
 
   return (
