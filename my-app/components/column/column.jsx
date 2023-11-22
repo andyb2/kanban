@@ -1,3 +1,4 @@
+'use client';
 import styles from './column.module.css';
 import { useState, useRef } from 'react';
 
@@ -8,23 +9,12 @@ export default function Column({ board, list, setListData }) {
 
     const handleOnDrag = (event, card, idx, title) => {
         const { target } = event;
-
         // Waits when the dragging of a card has started then triggers the display none
         // so it still shows the dragging effect
         setTimeout(() => {
             target.style.display = "none";
-        }, 0)
-        
-        
-        setListData((prevState) => {
-            const state = {...prevState}
-            console.log(state.list[title][idx])
-            // state.dragged = 
-            return state;
-        })
-            
+        }, 0)    
     }
-console.log('render')
 
     const handleDragOver = (e) => {
         e.preventDefault();
