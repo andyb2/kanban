@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 export default function Home() {
   const [listData, setListData] = useState({ list, draggedCard: {} });
+  const [draggedCard, setDraggedCard] = useState(null);
 
   return (
     <div className={styles.container}>
@@ -14,7 +15,7 @@ export default function Home() {
         {
           board.map((item) => {
             return (
-              <Column board={item} list={list[item.title]} setListData={setListData} />
+              <Column board={item} list={list[item.title]} setListData={setListData} setDraggedCard={setDraggedCard} />
             )
           })
         }
