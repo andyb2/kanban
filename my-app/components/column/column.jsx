@@ -1,8 +1,30 @@
 import styles from './column.module.css';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 
-export default function Column({ board, list }) {
+export default function Column({ board, list, setListData }) {
     const cardRef = useRef(null);
+    const columnRef = useRef(null)
+    let dragged = false;
+
+    const handleOnDrag = (event, card, idx, title) => {
+        const { target } = event;
+
+        // Waits when the dragging of a card has started then triggers the display none
+        // so it still shows the dragging effect
+        setTimeout(() => {
+            target.style.display = "none";
+        }, 0)
+        
+        
+        setListData((prevState) => {
+            const state = {...prevState}
+            console.log(state.list[title][idx])
+            // state.dragged = 
+            return state;
+        })
+            
+    }
+console.log('render')
 
     const handleDragOver = (e) => {
         e.preventDefault();
@@ -10,17 +32,17 @@ export default function Column({ board, list }) {
 
     const handleOnDrop = (e) => {
         e.preventDefault();
-        console.log(cardRef)
+        console.log(draggedCard)
     }
-    
+
     return (
-        <div className={styles.container} onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleOnDrop(e)}>
+        <div className={styles.container} onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleOnDrop(e)} data-board={board.title} ref={columnRef}>
             <h5 className={styles.header} style={{background: board.color}}>{board.title}</h5>
             <div className={styles.spacer}>
             {
-                list.map(task => {
+                list.map((task, idx) => {
                     return (
-                        <div className={styles.card} draggable ref={() => cardRef.current = {title: task.title, description: task.description}}>
+                        <div className={styles.card} draggable={true} onDragStart={(e) => handleOnDrag(e, task, idx, board.title)}>
                             <div className={styles.title}>{task.title}</div>
                             <p className={styles.description}>{task.description}</p>
                         </div>
