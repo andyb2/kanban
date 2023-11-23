@@ -1,33 +1,42 @@
 import styles from "./column.module.css";
 
-export default function Column({ attributes, tasks, setColumns }) {
+export default function Column({
+  attributes,
+  tasks,
+  setColumns,
+  columns,
+  setMovingTask,
+  movingTask,
+}) {
   const { columnTitle, color } = attributes;
 
-  const handleOnDrag = (e, removeTask) => {
-    const tasksCopy = [...tasks];
-
-    const filteredTasks = tasksCopy.filter((task) => task.id !== removeTask.id);
-
-    setColumns((prevState) => {
-      const stateCopy = [...prevState];
-
-      const mappedState = stateCopy.map((column) => {
-        if (column.columnTitle === columnTitle) {
-          column.tasks = filteredTasks;
-          console.log(column.tasks);
-        }
-        return column;
-      });
-
-      return mappedState;
-    });
+  const handleOnDrag = (e, task) => {
+    setMovingTask({ prevColumnTitle: columnTitle, task });
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
   };
 
-  const handleOnDrop = (e) => {};
+  const handleOnDrop = (e) => {
+    e.preventDefault();
+
+    const mappedState = columns.map((column) => {
+      if (column.columnTitle === movingTask.prevColumnTitle) {
+        const filteredTasks = column.tasks.filter(
+          (task) => task.id !== movingTask.task.id
+        );
+        column.tasks = filteredTasks;
+      }
+
+      if (column.columnTitle === columnTitle) {
+        column.tasks.push(movingTask.task);
+      }
+
+      return column;
+    });
+    setColumns(mappedState);
+  };
 
   return (
     <div

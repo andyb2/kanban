@@ -6,8 +6,8 @@ import { useState } from "react";
 
 export default function Home() {
   const [columns, setColumns] = useState(apiResponse);
-  const [draggedCard, setDraggedCard] = useState(null);
-  console.log(columns);
+  const [movingTask, setMovingTask] = useState(null);
+  console.log(`home page render`);
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>Home Page</h1>
@@ -19,6 +19,9 @@ export default function Home() {
               attributes={{ columnTitle, color }}
               tasks={tasks}
               setColumns={setColumns}
+              columns={columns}
+              setMovingTask={setMovingTask}
+              movingTask={movingTask}
             />
           );
         })}
