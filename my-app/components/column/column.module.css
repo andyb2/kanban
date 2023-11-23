@@ -1,40 +1,42 @@
-.container, .spacer, .card {
-    display: flex;
-    flex-direction: column;
+.container,
+.spacer,
+.card {
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-    border: 1px solid black;
-    border-radius: 10px;
-    min-width: 300px;
-    min-height: 375px;
+  border: 1px solid black;
+  border-radius: 10px;
+  min-width: 300px;
+  min-height: 375px;
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 0;
-    margin: 0;
-    font-size: 20px;
-    border-radius: 9px 9px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  margin: 0;
+  font-size: 20px;
+  border-radius: 9px 9px 0 0;
 }
 
 .spacer {
-    gap: 1rem;
-    padding: 2rem;
+  gap: 1rem;
+  padding: 2rem;
 }
 
 .card {
-    border: 1px solid black;
-    padding: 1rem;
-    border-radius: 10px;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .title {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .description {
-    margin: 0;
+  margin: 0;
 }
