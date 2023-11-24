@@ -47,7 +47,7 @@ export default function Column({
       <h5 className={styles.header} style={{ background: color }}>
         {columnTitle}
       </h5>
-      <div className={styles.spacer}>
+      <div className={tasks.length && styles.tasks}>
         {tasks.map((task) => {
           return (
             <div
@@ -61,6 +61,10 @@ export default function Column({
             </div>
           );
         })}
+      </div>
+      <div className={styles.buttonContainer}>
+        <button className={styles.button}>+</button>
+        <p className={styles.p}>Add a task</p>
       </div>
     </div>
   );
