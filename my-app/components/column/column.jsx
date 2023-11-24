@@ -1,4 +1,7 @@
+"use client";
+import TaskCreation from "../task-creation/task-creation";
 import styles from "./column.module.css";
+import { useState } from "react";
 
 export default function Column({
   attributes,
@@ -8,6 +11,7 @@ export default function Column({
   setMovingTask,
   movingTask,
 }) {
+  const [toggleTaskCreation, setToggleTaskCreation] = useState(false);
   const { columnTitle, color } = attributes;
 
   const handleOnDrag = (e, task) => {
@@ -38,6 +42,10 @@ export default function Column({
     setColumns(mappedState);
   };
 
+  const handleClick = () => {
+    setToggleTaskCreation((prev) => !prev);
+  };
+
   return (
     <div
       className={styles.container}
@@ -63,9 +71,18 @@ export default function Column({
         })}
       </div>
       <div className={styles.buttonContainer}>
-        <button className={styles.button}>+</button>
+        <button className={styles.button} onClick={handleClick}>
+          +
+        </button>
         <p className={styles.p}>Add a task</p>
       </div>
+      {toggleTaskCreation && (
+        <TaskCreation
+          tasks={tasks}
+          setToggleTaskCreation={setToggleTaskCreation}
+          columnTitle={columnTitle}
+        />
+      )}
     </div>
   );
 }
