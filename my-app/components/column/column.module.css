@@ -6,10 +6,13 @@
 }
 
 .container {
-  border: 1px solid black;
+  border: 1px solid rgba(168, 168, 168, 0.068);
   border-radius: 10px;
-  min-width: 300px;
-  min-height: 375px;
+  min-width: 250px;
+  width: 250px;
+  flex-grow: 1;
+  background-color: rgba(168, 168, 168, 0.164);
+  align-self: flex-start;
 }
 
 .header {
@@ -22,15 +25,19 @@
   border-radius: 9px 9px 0 0;
 }
 
-.spacer {
-  gap: 1rem;
-  padding: 2rem;
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0 1rem;
 }
 
 .card {
-  border: 1px solid black;
+  border: 1px solid rgba(168, 168, 168, 0.068);
   padding: 1rem;
   border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.205);
 }
 
 .title {
@@ -38,5 +45,26 @@
 }
 
 .description {
+  margin: 0;
+}
+
+.buttonContainer {
+  display: flex;
+  padding: 0.5rem 1rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  background: none;
+  border: none;
+}
+
+.p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
 }
