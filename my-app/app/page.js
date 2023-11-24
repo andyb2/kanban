@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Home() {
   const [columns, setColumns] = useState(apiResponse);
   const [movingTask, setMovingTask] = useState(null);
-  console.log(`home page render`);
+
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>Home Page</h1>
