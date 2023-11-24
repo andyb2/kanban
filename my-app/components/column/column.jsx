@@ -70,10 +70,8 @@ export default function Column({
           );
         })}
       </div>
-      <div className={styles.buttonContainer}>
-        <button className={styles.button} onClick={handleClick}>
-          +
-        </button>
+      <div className={styles.buttonContainer} onClick={handleClick}>
+        <button className={styles.button}>+</button>
         <p className={styles.p}>Add a task</p>
       </div>
       {toggleTaskCreation && (
