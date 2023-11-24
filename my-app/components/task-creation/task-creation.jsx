@@ -8,6 +8,7 @@ export default function TaskCreation({ tasks, setToggleTaskCreation }) {
       title: e.target.title.value,
       description: e.target.description.value,
     };
+
     tasks.push(newTask);
 
     setToggleTaskCreation(false);
