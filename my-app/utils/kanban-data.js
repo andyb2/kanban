@@ -21,7 +21,7 @@ export const apiResponse = [
     ],
   },
   {
-    columnTitle: "Doing",
+    columnTitle: "In Progress",
     color: "rgba(247, 243, 0, 0.548)",
     tasks: [
       {
