@@ -80,7 +80,6 @@ export default function Column({
         <TaskCreation
           tasks={tasks}
           setToggleTaskCreation={setToggleTaskCreation}
-          columnTitle={columnTitle}
         />
       )}
     </div>
