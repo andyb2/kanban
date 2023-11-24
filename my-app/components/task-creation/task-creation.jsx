@@ -5,7 +5,7 @@ export default function TaskCreation({ tasks, setToggleTaskCreation }) {
     e.preventDefault();
 
     const newTask = {
-      title: e.target.i1.value,
+      title: e.target.title.value,
       description: e.target.i2.value,
     };
     tasks.push(newTask);
