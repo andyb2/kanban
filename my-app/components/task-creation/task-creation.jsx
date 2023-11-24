@@ -1,10 +1,6 @@
 import styles from "./task-creation.module.css";
 
-export default function TaskCreation({
-  tasks,
-  setToggleTaskCreation,
-  columnTitle,
-}) {
+export default function TaskCreation({ tasks, setToggleTaskCreation }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
