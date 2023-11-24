@@ -19,7 +19,7 @@ export default function TaskCreation({ tasks, setToggleTaskCreation }) {
         <label>Title</label>
         <input id='title' />
         <label>Description</label>
-        <input id='i2' />
+        <input id='description' />
         <button className={styles.button}>Add task</button>
       </form>
     </div>
