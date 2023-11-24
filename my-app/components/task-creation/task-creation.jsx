@@ -17,7 +17,7 @@ export default function TaskCreation({ tasks, setToggleTaskCreation }) {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
         <label>Title</label>
-        <input id='i1' />
+        <input id='title' />
         <label>Description</label>
         <input id='i2' />
         <button className={styles.button}>Add task</button>
