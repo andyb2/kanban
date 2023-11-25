@@ -1,7 +1,7 @@
-"use client";
-import TaskCreation from "../task-creation/task-creation";
-import styles from "./column.module.css";
-import { useState } from "react";
+'use client';
+import TaskCreation from '../task-creation/task-creation';
+import styles from './column.module.css';
+import { useState } from 'react';
 
 export default function Column({
   attributes,
