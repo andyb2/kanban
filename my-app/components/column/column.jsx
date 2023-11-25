@@ -1,4 +1,5 @@
 'use client';
+import DeleteTask from '../delete-task/delete-task';
 import TaskCreation from '../task-creation/task-creation';
 import styles from './column.module.css';
 import { useState } from 'react';
@@ -64,6 +65,7 @@ export default function Column({
               draggable={true}
               onDragStart={(e) => handleOnDrag(e, task)}
             >
+              <DeleteTask task={task.id} />
               <div className={styles.title}>{task.title}</div>
               <p className={styles.description}>{task.description}</p>
             </div>
