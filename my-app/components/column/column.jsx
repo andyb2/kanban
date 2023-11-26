@@ -18,11 +18,11 @@ export default function Column({
   const handleOnClick = (id) => {
     const mappedState = columns.map((column) => {
       if (column.columnTitle === columnTitle) {
-        column.tasks.filter((task) => {
+        column = column.tasks.filter((task) => {
           task.id !== id;
         });
-        return column;
       }
+      return column;
     });
     console.log(mappedState);
     // setColumns(mappedState);
