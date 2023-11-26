@@ -15,6 +15,19 @@ export default function Column({
   const [toggleTaskCreation, setToggleTaskCreation] = useState(false);
   const { columnTitle, color } = attributes;
 
+  const handleOnClick = (id) => {
+    const mappedState = columns.map((column) => {
+      if (column.columnTitle === columnTitle) {
+        column.tasks.filter((task) => {
+          task.id !== id;
+        });
+        return column;
+      }
+    });
+    console.log(mappedState);
+    // setColumns(mappedState);
+  };
+
   const handleOnDrag = (e, task) => {
     setMovingTask({ prevColumnTitle: columnTitle, task });
   };
@@ -65,7 +78,8 @@ export default function Column({
               draggable={true}
               onDragStart={(e) => handleOnDrag(e, task)}
             >
-              <DeleteTask task={task.id} />
+              <button onClick={() => handleOnClick(task.id)}>X</button>
+              {/* <DeleteTask task={task.id} /> */}
               <div className={styles.title}>{task.title}</div>
               <p className={styles.description}>{task.description}</p>
             </div>
