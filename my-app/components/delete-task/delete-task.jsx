@@ -1,3 +1,4 @@
+import styles from './delete-task.module.css';
 import { addOrRemoveTaskFromCol } from '@/utils/function';
 
 export default function DeleteTask({
@@ -10,5 +11,9 @@ export default function DeleteTask({
     const newColumn = addOrRemoveTaskFromCol(columns, taskId, columnTitle);
     setColumns(newColumn);
   };
-  return <button onClick={handleOnClick}>X</button>;
+  return (
+    <button className={styles.button} onClick={handleOnClick}>
+      X
+    </button>
+  );
 }

@@ -1,0 +1,6 @@
+.button {
+  display: flex;
+  align-self: flex-end;
+  background: none;
+  border: none;
+}
