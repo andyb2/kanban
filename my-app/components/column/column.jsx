@@ -1,7 +1,7 @@
 'use client';
-import DeleteTask from '../delete-task/delete-task';
 import TaskCreation from '../task-creation/task-creation';
 import styles from './column.module.css';
+import { addOrRemoveTaskFromCol } from '@/utils/function';
 import { useState } from 'react';
 
 export default function Column({
@@ -15,21 +15,12 @@ export default function Column({
   const [toggleTaskCreation, setToggleTaskCreation] = useState(false);
   const { columnTitle, color } = attributes;
 
-  const removeTaskFromCol = (id) => {
-    return columns.map((column) => {
-      if (column.columnTitle === columnTitle) {
-        column.tasks = column.tasks.filter((task) => task.id !== id);
-      }
-      return column;
-    });
-  };
-
   const handleOnClick = (id) => {
-    const newColumn = removeTaskFromCol(id);
+    const newColumn = addOrRemoveTaskFromCol(columns, id, columnTitle);
     setColumns(newColumn);
   };
 
-  const handleOnDrag = (e, task) => {
+  const handleOnDrag = (task) => {
     setMovingTask({ prevColumnTitle: columnTitle, task });
   };
 
@@ -39,22 +30,16 @@ export default function Column({
 
   const handleOnDrop = (e) => {
     e.preventDefault();
+    const addToCol = columnTitle;
+    const newState = addOrRemoveTaskFromCol(
+      columns,
+      movingTask.task.id,
+      movingTask.prevColumnTitle,
+      addToCol,
+      movingTask
+    );
 
-    const mappedState = columns.map((column) => {
-      if (column.columnTitle === movingTask.prevColumnTitle) {
-        //   const filteredTasks = column.tasks.filter(
-        //     (task) => task.id !== movingTask.task.id
-        //   );
-        //   column.tasks = filteredTasks;
-      }
-
-      if (column.columnTitle === columnTitle) {
-        column.tasks.push(movingTask.task);
-      }
-
-      return column;
-    });
-    setColumns(mappedState);
+    setColumns(newState);
   };
 
   const handleClick = () => {
@@ -77,10 +62,9 @@ export default function Column({
               className={styles.card}
               key={task.id}
               draggable={true}
-              onDragStart={(e) => handleOnDrag(e, task)}
+              onDragStart={() => handleOnDrag(task)}
             >
               <button onClick={() => handleOnClick(task.id)}>X</button>
-              {/* <DeleteTask task={task.id} /> */}
               <div className={styles.title}>{task.title}</div>
               <p className={styles.description}>{task.description}</p>
             </div>
