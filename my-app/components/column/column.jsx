@@ -1,4 +1,5 @@
 'use client';
+import DeleteTask from '../delete-task/delete-task';
 import TaskCreation from '../task-creation/task-creation';
 import styles from './column.module.css';
 import { addOrRemoveTaskFromCol } from '@/utils/function';
@@ -64,6 +65,12 @@ export default function Column({
               draggable={true}
               onDragStart={() => handleOnDrag(task)}
             >
+              <DeleteTask
+                columns={columns}
+                taskId={task.id}
+                columnTitle={columnTitle}
+                setColumns={setColumns}
+              />
               <button onClick={() => handleOnClick(task.id)}>X</button>
               <div className={styles.title}>{task.title}</div>
               <p className={styles.description}>{task.description}</p>
