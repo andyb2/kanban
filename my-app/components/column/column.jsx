@@ -15,17 +15,18 @@ export default function Column({
   const [toggleTaskCreation, setToggleTaskCreation] = useState(false);
   const { columnTitle, color } = attributes;
 
-  const handleOnClick = (id) => {
-    const mappedState = columns.map((column) => {
+  const removeTaskFromCol = (id) => {
+    return columns.map((column) => {
       if (column.columnTitle === columnTitle) {
-        column = column.tasks.filter((task) => {
-          task.id !== id;
-        });
+        column.tasks = column.tasks.filter((task) => task.id !== id);
       }
       return column;
     });
-    console.log(mappedState);
-    // setColumns(mappedState);
+  };
+
+  const handleOnClick = (id) => {
+    const newColumn = removeTaskFromCol(id);
+    setColumns(newColumn);
   };
 
   const handleOnDrag = (e, task) => {
@@ -41,10 +42,10 @@ export default function Column({
 
     const mappedState = columns.map((column) => {
       if (column.columnTitle === movingTask.prevColumnTitle) {
-        const filteredTasks = column.tasks.filter(
-          (task) => task.id !== movingTask.task.id
-        );
-        column.tasks = filteredTasks;
+        //   const filteredTasks = column.tasks.filter(
+        //     (task) => task.id !== movingTask.task.id
+        //   );
+        //   column.tasks = filteredTasks;
       }
 
       if (column.columnTitle === columnTitle) {
