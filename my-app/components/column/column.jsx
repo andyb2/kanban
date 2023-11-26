@@ -16,11 +16,6 @@ export default function Column({
   const [toggleTaskCreation, setToggleTaskCreation] = useState(false);
   const { columnTitle, color } = attributes;
 
-  const handleOnClick = (id) => {
-    const newColumn = addOrRemoveTaskFromCol(columns, id, columnTitle);
-    setColumns(newColumn);
-  };
-
   const handleOnDrag = (task) => {
     setMovingTask({ prevColumnTitle: columnTitle, task });
   };
@@ -71,7 +66,6 @@ export default function Column({
                 columnTitle={columnTitle}
                 setColumns={setColumns}
               />
-              <button onClick={() => handleOnClick(task.id)}>X</button>
               <div className={styles.title}>{task.title}</div>
               <p className={styles.description}>{task.description}</p>
             </div>
