@@ -61,13 +61,13 @@ export default function Column({
               onDragStart={() => handleOnDrag(task)}
             >
               <div className={styles.row}>
+                <div className={styles.title}>{task.title}</div>
                 <DeleteTask
                   columns={columns}
                   taskId={task.id}
                   columnTitle={columnTitle}
                   setColumns={setColumns}
                 />
-                <div className={styles.title}>{task.title}</div>
               </div>
               <p className={styles.description}>{task.description}</p>
             </div>
