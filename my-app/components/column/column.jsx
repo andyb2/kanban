@@ -60,13 +60,15 @@ export default function Column({
               draggable={true}
               onDragStart={() => handleOnDrag(task)}
             >
-              <DeleteTask
-                columns={columns}
-                taskId={task.id}
-                columnTitle={columnTitle}
-                setColumns={setColumns}
-              />
-              <div className={styles.title}>{task.title}</div>
+              <div className={styles.row}>
+                <DeleteTask
+                  columns={columns}
+                  taskId={task.id}
+                  columnTitle={columnTitle}
+                  setColumns={setColumns}
+                />
+                <div className={styles.title}>{task.title}</div>
+              </div>
               <p className={styles.description}>{task.description}</p>
             </div>
           );
